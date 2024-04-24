@@ -15,14 +15,19 @@ struct Person {
 void talking(Person person);
 
 
-//initializing struct variables inside of main, then calling talking function to output data
+//initializing struct variables inside of main, by getting user input for them, then calling talking function to output data
 int main()
 {
     Person person1;
     
-    person1.age = 12;
-    person1.height = 5.7;
-    person1.name = "Jerry";
+    cout << "Please enter your age: ";
+    cin >> person1.age;
+    
+    cout << "\nThank you, please enter your height in the format (x.x): ";
+    cin >> person1.height;
+    
+    cout << "\nThank you, now finally enter your first name: ";
+    cin >> person1.name;
     
 
     talking(person1);
@@ -35,9 +40,9 @@ int main()
 void talking(Person person) {
     stringstream ss;        //This line declares a stringstream object named ss. A stringstream is an object that allows you to treat strings as streams, enabling you to read from and write to them as if they were input/output streams.
     
-    ss << "My age is " << person.age << "\n";
-    ss << "My height is " << person.height << "\n";
-    ss << "My name is " << person.name << "\n";
+    ss << "\nYour age is " << person.age << "\n";
+    ss << "\nYour height is " << person.height << "\n";
+    ss << "\nYour name is " << person.name << "\n";
     
     string result = ss.str();   //This line converts the content of the stringstream ss into a string named result. The str() function of stringstream returns the content of the stream as a string.
     cout << result;
